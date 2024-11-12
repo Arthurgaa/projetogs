@@ -37,21 +37,18 @@ const Home = () => {
                 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-12 w-full max-w-6xl">
                     <div className="bg-white shadow-lg rounded-lg p-10 text-center transform transition duration-300 hover:scale-105 hover:shadow-2xl">
-                        <div className="text-6xl mb-6">💡</div>
-                        <h3 className="text-2xl font-semibold mb-4">Solução Inovadora</h3>
-                        <p className="text-gray-600">Nossa abordagem resolve o problema de maneira eficaz e criativa, trazendo inovação para o mercado.</p>
+                        <img src="/card1.jpeg" alt="Solução Inovadora" className="w-full h-40 object-cover rounded mb-6" />
+                        <h3 className="text-2xl font-semibold mb-4">Incentivo e Expansão de Energias Renováveis (Solar e Eólica)</h3>
                     </div>
                     
                     <div className="bg-white shadow-lg rounded-lg p-10 text-center transform transition duration-300 hover:scale-105 hover:shadow-2xl">
-                        <div className="text-6xl mb-6">⚙️</div>
-                        <h3 className="text-2xl font-semibold mb-4">Tecnologia Avançada</h3>
-                        <p className="text-gray-600">Utilizamos tecnologia de ponta para garantir o melhor desempenho e confiabilidade nos nossos serviços.</p>
+                        <img src="/card2.jpeg" alt="Tecnologia Avançada" className="w-full h-40 object-cover rounded mb-6" />
+                        <h3 className="text-2xl font-semibold mb-4">Desenvolvimento de Tecnologias de Armazenamento de Energia</h3>
                     </div>
                     
                     <div className="bg-white shadow-lg rounded-lg p-10 text-center transform transition duration-300 hover:scale-105 hover:shadow-2xl">
-                        <div className="text-6xl mb-6">🌍</div>
-                        <h3 className="text-2xl font-semibold mb-4">Impacto Global</h3>
-                        <p className="text-gray-600">Nosso trabalho gera um impacto positivo ao redor do mundo, beneficiando comunidades e o meio ambiente.</p>
+                        <img src="/card3.jpeg" alt="Impacto Global" className="w-full h-40 object-cover rounded mb-6" />
+                        <h3 className="text-2xl font-semibold mb-4">Investimento em Infraestruturas de Mobilidade Elétrica</h3>
                     </div>
                 </div>
             </div>
