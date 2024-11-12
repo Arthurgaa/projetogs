@@ -94,7 +94,7 @@ const Login = () => {
                             </li>
                             <li>
                                 <span className="texto1">Não possui conta?</span>
-                                <a href="#">
+                                <a href="/cadastrar">
                                     Criar
                                 </a>
                             </li>

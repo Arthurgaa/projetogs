@@ -8,6 +8,7 @@ import Cadastrar from './routes/Cadastrar.jsx';
 import Login from './routes/Login.jsx';
 import Sobre from './routes/Sobre.jsx';
 import Solucao from './routes/Solucao.jsx';
+import './index.css'
 
 // Configuração das rotas
 const router = createBrowserRouter([
