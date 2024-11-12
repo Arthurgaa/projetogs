@@ -20,7 +20,7 @@ const Nav = () => {
           <Link to="/" className="text-xl font-semibold hover:text-gray-400">EcoSphere</Link>
         </div>
         {/* Links de navegação */}
-        <div className="flex space-x-4">
+        <div className="flex items-center space-x-4">
           <Link to="/" className="hover:text-gray-400">Início</Link>
           <Link to="/solucao" className="hover:text-gray-400">Solução</Link>
           <Link to="/sobre" className="hover:text-gray-400">Sobre</Link>
@@ -28,7 +28,7 @@ const Nav = () => {
           <Link to="/cadastrar" className="hover:text-gray-400">Cadastre-se</Link>
           <button 
             onClick={handleLogout} 
-            className="bg-red-500 hover:bg-red-600 text-white font-semibold py-1 px-4 rounded-lg transition duration-200"
+            className="bg-[#9cc149] hover:bg-green-600 text-white font-semibold py-1 px-4 rounded-lg transition duration-200"
           >
             Logout
           </button>
