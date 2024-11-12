@@ -4,8 +4,8 @@ import { FaLeaf, FaHandsHelping, FaLightbulb } from 'react-icons/fa';
 
 const Sobre = () => {
   return (
-    <div className="bg-gradient-to-b from-green-50 to-green-100 min-h-screen p-6 flex justify-center items-center">
-      <div className="bg-white rounded-lg shadow-xl max-w-5xl p-8 md:flex">
+    <div className="bg-white min-h-screen p-6 flex justify-center items-center">
+      <div className="bg-gradient-to-b from-green-50 to-green-100 rounded-lg shadow-xl max-w-5xl p-8 md:flex">
         {/* Barra Lateral */}
         <aside className="md:w-1/3 flex flex-col items-center border-r border-gray-300 pr-6 mb-6 md:mb-0">
           {/* Logo */}
