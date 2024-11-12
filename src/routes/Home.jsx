@@ -15,18 +15,42 @@ const Home = () => {
     };
 
     return (
-        <div className="w-full h-screen">
-            <Slider {...settings}>
-                <div>
-                    <img src="/banner1.png" alt="Banner 1" className="w-full h-screen object-cover" />
+        <div className="w-full">
+            {/* Banner */}
+            <div className="w-full h-64 mb-8">
+                <Slider {...settings}>
+                    <div>
+                        <img src="/banner1.png" alt="Banner 1" className="w-full h-64 object-cover" />
+                    </div>
+                    <div>
+                        <img src="/banner2.png" alt="Banner 2" className="w-full h-64 object-cover" />
+                    </div>
+                    <div>
+                        <img src="/banner3.png" alt="Banner 3" className="w-full h-64 object-cover" />
+                    </div>
+                </Slider>
+            </div>
+
+            {/* Cards Section */}
+            <div className="flex flex-wrap justify-center gap-6 px-4">
+                <div className="bg-white shadow-lg rounded-lg p-6 w-72 text-center transform transition duration-300 hover:scale-105 hover:shadow-xl">
+                    <div className="text-4xl mb-4">💡</div>
+                    <h3 className="text-xl font-semibold mb-2">Solução Inovadora</h3>
+                    <p className="text-gray-600">Nossa abordagem resolve o problema de maneira eficaz e criativa.</p>
                 </div>
-                <div>
-                    <img src="/banner2.png" alt="Banner 2" className="w-full h-screen object-cover" />
+                
+                <div className="bg-white shadow-lg rounded-lg p-6 w-72 text-center transform transition duration-300 hover:scale-105 hover:shadow-xl">
+                    <div className="text-4xl mb-4">⚙️</div>
+                    <h3 className="text-xl font-semibold mb-2">Tecnologia Avançada</h3>
+                    <p className="text-gray-600">Utilizamos tecnologia de ponta para garantir o melhor desempenho.</p>
                 </div>
-                <div>
-                    <img src="/banner3.png" alt="Banner 3" className="w-full h-screen object-cover" />
+                
+                <div className="bg-white shadow-lg rounded-lg p-6 w-72 text-center transform transition duration-300 hover:scale-105 hover:shadow-xl">
+                    <div className="text-4xl mb-4">🌍</div>
+                    <h3 className="text-xl font-semibold mb-2">Impacto Global</h3>
+                    <p className="text-gray-600">Nosso trabalho gera um impacto positivo para pessoas ao redor do mundo.</p>
                 </div>
-            </Slider>
+            </div>
         </div>
     );
 };
