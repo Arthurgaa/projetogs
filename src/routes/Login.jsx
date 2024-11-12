@@ -2,20 +2,14 @@ import { useRef, useState, useEffect } from "react";
 import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
-    // Hook-useRef pega a referência de um componente ou elemento do DOM
     const usuario = useRef();
     const senha = useRef();
-
-    // Hook-useState - Manipula o estado da variável
     const [usuarios, setUsuarios] = useState([]);
-
-    // Hook -useNavigate- redireciona para outro componente
+    const [mensagem, setMensagem] = useState('');
     const navigate = useNavigate();
 
-    // Função de validação
     function validar() {
         for (let i = 0; i < usuarios.length; i++) {
-            // Comparação de senhas e usuários como strings
             if (
                 usuarios[i].usuario === usuario.current.value &&
                 usuarios[i].senha === senha.current.value
@@ -26,83 +20,77 @@ const Login = () => {
         return false;
     }
 
-    // Função handleSubmit
     const handleSubmit = (e) => {
-        // Previne que a página faça qualquer modificação, ex: reload
         e.preventDefault();
         if (validar()) {
-            // Criando a autenticação
             let token =
                 Math.random().toString(16).substring(2) +
                 Math.random().toString(16).substring(2);
             sessionStorage.setItem("usuario", usuario.current.value);
             sessionStorage.setItem("senha", token);
-            navigate("/");
+            setMensagem("Usuário logado com sucesso!");
+            setTimeout(() => {
+                navigate("/");
+            }, 2000); // Redireciona após 2 segundos
         } else {
             alert("Usuário ou senha inválidos");
         }
     }
 
-    // Hook-useEffect para buscar os dados do login no json
     useEffect(() => {
-        // Pega os dados do json
         fetch("http://localhost:5000/usuarios")
             .then((res) => res.json())
-            .then((res) => {
-                // Atualiza o estado com os dados recebidos
-                setUsuarios(res);
-            })
-            .catch((err) => console.log(err)); // Em caso de erro
+            .then((res) => setUsuarios(res))
+            .catch((err) => console.log(err));
     }, []);
 
     return (
-        <section className="container">
-            <div className="container-login">
-                <div className="login">
-
-                    <form className="login-form" onSubmit={handleSubmit}>
-                        <span className="titulo-login">Faça seu Login</span>
-
-                        <div className="w-input">
-                            <input
-                                type="text"
-                                className="input-form"
-                                id="usuario"
-                                ref={usuario}
-                                placeholder="Usuário" // Adicionando placeholder para melhor acessibilidade
-                            />
-                        </div>
-
-                        <div className="w-input">
-                            <input
-                                type="password"
-                                className="input-form"
-                                id="senha"
-                                ref={senha}
-                                placeholder="Senha" // Adicionando placeholder
-                            />
-                        </div>
-
-                        <div className="login-btn">
-                            <button type="submit" className="login-form-btn">Login</button>
-                        </div>
-
-                        {/* Seção de links úteis */}
-                        <ul className="uteis">
-                            <li>
-                                <span className="texto1">Esqueceu sua senha?</span>
-                            </li>
-                            <li>
-                                <span className="texto1">Não possui conta?</span>
-                                <a href="/cadastrar">
-                                    Criar
-                                </a>
-                            </li>
-                        </ul>
-
-                    </form>
-                </div>
-                <img src="/logo.png" alt="logo" />
+        <section className="flex items-center justify-center min-h-screen bg-white">
+            <div className="bg-[#EFFDF3] p-8 rounded-lg shadow-lg w-full max-w-md">
+                <img src="/logo.png" alt="logo" className="mx-auto mb-6 h-12" />
+                <h2 className="text-center text-2xl font-bold text-gray-800 mb-4">Faça seu Login</h2>
+                {mensagem && (
+                    <div className="mb-4 p-2 text-center text-green-600 font-medium">
+                        {mensagem}
+                    </div>
+                )}
+                <form onSubmit={handleSubmit} className="space-y-6">
+                    <div>
+                        <input
+                            type="text"
+                            id="usuario"
+                            ref={usuario}
+                            placeholder="Usuário"
+                            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        />
+                    </div>
+                    <div>
+                        <input
+                            type="password"
+                            id="senha"
+                            ref={senha}
+                            placeholder="Senha"
+                            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        />
+                    </div>
+                    <div>
+                        <button
+                            type="submit"
+                            className="w-full bg-[#111827] text-white font-semibold py-2 rounded-lg transition duration-200"
+                        >
+                            Login
+                        </button>
+                    </div>
+                </form>
+                <ul className="mt-6 text-center space-y-3 text-gray-600">
+                    <li>
+                        <span className="text-sm">Esqueceu sua senha?</span>
+                    </li>
+                    <li>
+                        <span className="text-sm">Não possui conta? </span>
+                        <a href="/cadastrar" className="text-blue-600 hover:underline">Criar</a>
+                    </li>
+                </ul>
             </div>
         </section>
     );

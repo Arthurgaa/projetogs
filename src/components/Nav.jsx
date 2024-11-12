@@ -1,14 +1,20 @@
 import { Link, useNavigate } from 'react-router-dom';
+import { useState } from 'react';
 import logo from '/public/logo.png'; // Atualize o caminho conforme necessário
 
 const Nav = () => {
+  const [mensagem, setMensagem] = useState('');
   const navigate = useNavigate();
 
   // Função de logout
   const handleLogout = () => {
     sessionStorage.removeItem('usuario');
     sessionStorage.removeItem('senha');
-    navigate('/');
+    setMensagem("Usuário deslogado com sucesso!");
+    setTimeout(() => {
+      setMensagem(''); // Limpa a mensagem após 2 segundos
+      navigate('/');   // Redireciona para a página inicial
+    }, 2000); // Tempo de exibição da mensagem em milissegundos
   };
 
   return (
@@ -19,6 +25,7 @@ const Nav = () => {
           <img src={logo} alt="Logo" className="h-8 w-auto" />
           <Link to="/" className="text-xl font-semibold hover:text-gray-400">EcoSphere</Link>
         </div>
+
         {/* Links de navegação */}
         <div className="flex items-center space-x-4">
           <Link to="/" className="hover:text-gray-400">Início</Link>
@@ -34,6 +41,13 @@ const Nav = () => {
           </button>
         </div>
       </div>
+
+      {/* Mensagem de logout */}
+      {mensagem && (
+        <div className="text-center bg-green-500 text-white py-2">
+          {mensagem}
+        </div>
+      )}
     </nav>
   );
 };
